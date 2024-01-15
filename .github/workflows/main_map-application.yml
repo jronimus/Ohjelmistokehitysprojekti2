@@ -61,4 +61,4 @@ jobs:
           app-name: 'Map-Application'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5E8CA461CDE245628294F4D9DB193091 }}
-          package: node-app/release.zip
+          package: release.zip
