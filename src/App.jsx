@@ -1,12 +1,13 @@
+import GoogleMaps from "./components/GoogleMaps"
+
 const App = () => {
-
-// console.log(process.env);
-  return(
   
-  <div>
-    <p>App project 2</p>
-  </div>
-  )  
 
+  return (
+    <>
+      
+      <GoogleMaps/>
+    </>
+  )
 }
 export default App
