@@ -1,6 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
 import {
   Map,
   APIProvider,
@@ -9,9 +10,11 @@ import {
   Pin,
   InfoWindow,
 } from '@vis.gl/react-google-maps'
+import { MarkerClusterer } from '@googlemaps/markerclusterer'
 
 function GoogleMaps() {
   const [geoData, setGeoData] = useState(null)
+  const [open, setOpen]=useState(false)
 
   const position = { lat: 60.1828417992176, lng: 24.952730318261803 }
   const apiKey = import.meta.env.VITE_API_KEY
@@ -42,7 +45,7 @@ function GoogleMaps() {
             
             <AdvancedMarker key={index} position={{ lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0] }}>
           
-            <Pin/>
+         <span>🚲</span>
 
 
             </AdvancedMarker>
