@@ -13,8 +13,12 @@
   align-items: center;
   position: relative;
   cursor: pointer;
+  flex-grow: 1;
+  max-width: 35rem;
+  margin: 0rem 1rem;
 }
 .searchInput{
+  flex-grow: 1;
   padding: 0.5rem;
   margin: 0rem 0.5rem;
   border-radius: 10px;
@@ -26,8 +30,12 @@
   background-image: url('../Images/Icons/search.png');
   background-size: 20px;
   background-repeat: no-repeat;
-  background-position: calc(100% - 10px) center; /*on right side with 10px margin*/
+  background-position: calc(100% - 10px) center; /*on right side with 10px margin */
+
+  
 }
+
+
 
 .login{
   height: 1rem;

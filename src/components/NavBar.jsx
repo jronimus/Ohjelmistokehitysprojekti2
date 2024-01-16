@@ -5,13 +5,13 @@ function NavBar()
   return(
   <div>
    <nav className='nav'>
-   <div className="middle">
+   <div className="left">
     <a href="/" className="logo">Logo</a>
     </div>
     <div className="middle">
     <input type="text" className="searchInput" placeholder="Search" />
     </div>
-    <div className="middle">
+    <div className="right">
     <a href="./"><img className="login" src={login} alt="" /></a>
     </div>
     
