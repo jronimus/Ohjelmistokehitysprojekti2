@@ -1,26 +1,56 @@
 import React from 'react'
-import { useState } from "react";
-import {Map, APIProvider, AdvancedMarker, Marker, Pin, InfoWindow} from '@vis.gl/react-google-maps'
-
-
-
+import { useState, useEffect } from 'react'
+import axios from 'axios'
+import {
+  Map,
+  APIProvider,
+  AdvancedMarker,
+  Marker,
+  Pin,
+  InfoWindow,
+} from '@vis.gl/react-google-maps'
 
 function GoogleMaps() {
-const position = { lat: 60.1828417992176, lng: 24.952730318261803 }
-const apiKey = import.meta.env.VITE_API_KEY
+  const [geoData, setGeoData] = useState(null)
 
+  const position = { lat: 60.1828417992176, lng: 24.952730318261803 }
+  const apiKey = import.meta.env.VITE_API_KEY
+  const mapId= import.meta.env.VITE_MAP_ID
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          'https://opendata.arcgis.com/datasets/726277c507ef4914b0aec3cbcfcbfafc_0.geojson'
+        )
+        const data = response.data
+        setGeoData(data)
+        console.log(geoData)
+      } catch (error) {
+        console.log('Error fetching data: ', error)
+      }
+    }
+    fetchData()
+  }, [])
 
   return (
-
     <APIProvider apiKey={apiKey}>
-    <div style={{height: '100vh'}}>
-    <Map zoom={11} center={position} >
-    <Marker position={position}>
+      <div style={{ height: '100vh' }}>
+        <Map zoom={11} center={position} mapId={mapId}>
+          {/* <Marker position={position}></Marker> */}
+          {geoData && geoData.features.map((feature, index)=>(
+            
+            <AdvancedMarker key={index}
+            latitude={feature.geometry.coordinates[1]}
+            longitude={feature.geometry.coordinates[0]}>
+            <Pin/>
 
-    </Marker>
-    </Map>
-    </div>
 
+            </AdvancedMarker>
+          ))}
+          
+        </Map>
+      </div>
     </APIProvider>
   )
 }
