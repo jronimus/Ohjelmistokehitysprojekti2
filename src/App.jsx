@@ -1,3 +1,4 @@
+import NavBar from './components/NavBar'
 import GoogleMaps from "./components/GoogleMaps"
 
 const App = () => {
@@ -5,8 +6,9 @@ const App = () => {
 
   return (
     <>
-      
+       <NavBar/>
       <GoogleMaps/>
+     
     </>
   )
 }
