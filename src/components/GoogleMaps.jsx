@@ -37,12 +37,11 @@ function GoogleMaps() {
     <APIProvider apiKey={apiKey}>
       <div style={{ height: '100vh' }}>
         <Map zoom={11} center={position} mapId={mapId}>
-          {/* <Marker position={position}></Marker> */}
+          <Marker position={position}></Marker>
           {geoData && geoData.features.map((feature, index)=>(
             
-            <AdvancedMarker key={index}
-            latitude={feature.geometry.coordinates[1]}
-            longitude={feature.geometry.coordinates[0]}>
+            <AdvancedMarker key={index} position={{ lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0] }}>
+          
             <Pin/>
 
 
