@@ -2,8 +2,6 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
-
-
 import {
   Map,
   APIProvider,
@@ -16,11 +14,11 @@ import { MarkerClusterer } from '@googlemaps/markerclusterer'
 
 function GoogleMaps() {
   const [geoData, setGeoData] = useState(null)
-  const [open, setOpen]=useState(false)
+  const [muniData, setMuniData] = useState(null)
 
   const position = { lat: 60.1828417992176, lng: 24.952730318261803 }
   const apiKey = import.meta.env.VITE_API_KEY
-  const mapId= import.meta.env.VITE_MAP_ID
+  const mapId = import.meta.env.VITE_MAP_ID
 
   useEffect(() => {
     const fetchData = async () => {
@@ -32,28 +30,73 @@ function GoogleMaps() {
         setGeoData(data)
         console.log(geoData)
       } catch (error) {
-        console.log('Error fetching data: ', error)
+        console.log('Error fetching data:  ', error)
       }
     }
     fetchData()
   }, [])
 
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const res = await axios.get(
+          'https://api.hel.fi/linkedevents/v1/place?type=muni'
+        )
+        setMuniData(res.data)
+      } catch (error) {
+        console.log('Error fetching data:  ', error)
+      }
+    }
+    fetchData()
+  }, [])
+
+  useEffect(() => {
+    // Check if muniData is not null and has a data property before mapping
+    if (muniData && Array.isArray(muniData.data)) {
+      muniData.data
+        .filter(
+          (item) =>
+            typeof item.name === 'string' && item.name.includes('kirjasto')
+        )
+        .map((item, index) => {
+          console.log(item.position)
+          return null
+        })
+    }
+  }, [muniData])
 
   return (
     <APIProvider apiKey={apiKey}>
       <div style={{ height: '100vh' }}>
         <Map zoom={11} center={position} mapId={mapId}>
-          <Marker position={position}></Marker>
-          {geoData && geoData.features.map((feature, index)=>(
-            
-            <AdvancedMarker key={index} position={{ lat: feature.geometry.coordinates[1], lng: feature.geometry.coordinates[0] }}>
-          
-         <span>🚲</span>
+          {geoData &&
+            geoData.features.map((feature, index) => (
+              <AdvancedMarker
+                key={index}
+                position={{
+                  lat: feature.geometry.coordinates[1],
+                  lng: feature.geometry.coordinates[0],
+                }}>
+                <span style={{ fontSize: '1.2rem' }}>🚲</span>
+              </AdvancedMarker>
+            ))}
 
-
-            </AdvancedMarker>
-          ))}
-          
+          {muniData &&
+            Array.isArray(muniData.data) &&
+            muniData.data
+              .filter((item) => item.name.fi.includes('kirjasto'))
+              .map((item, index) => {
+                return (
+                  <AdvancedMarker
+                    key={index}
+                    position={{
+                      lat: item.position.coordinates[1],
+                      lng: item.position.coordinates[0],
+                    }}>
+                    <span style={{ fontSize: '2rem' }}>📚</span>
+                  </AdvancedMarker>
+                )
+              })}
         </Map>
       </div>
     </APIProvider>
