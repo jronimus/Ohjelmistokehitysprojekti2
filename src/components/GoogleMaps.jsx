@@ -2,6 +2,8 @@ import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
+
+
 import {
   Map,
   APIProvider,
@@ -35,6 +37,7 @@ function GoogleMaps() {
     }
     fetchData()
   }, [])
+
 
   return (
     <APIProvider apiKey={apiKey}>
