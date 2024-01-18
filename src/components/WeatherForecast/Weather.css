@@ -1,0 +1,15 @@
+.container{
+  width: auto;
+  max-width: 500px;
+  height: 200px;
+  margin: auto;
+  margin-top: 75px;
+  border-radius: 12px;
+  background-image: linear-gradient(180deg, #503bc6 0%, #34277b 100%);
+color: white;
+padding: 2rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
