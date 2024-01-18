@@ -7,7 +7,7 @@ const Weather = () => {
   const [city, setCity] = useState('');
   const [weatherData, setWeatherData] = useState(null);
 
-  const apiKey = '7015c84952e0758fccf0b3d0bd59c321'; // OpenWeatherMap API key
+  const apiKey = import.meta.env.VITE_API_KEY_WEATHER; // OpenWeatherMap API key
 
   const fetchWeather = async () => {
     try {

@@ -65,6 +65,58 @@ function GoogleMaps() {
     }
   }, [muniData])
 
+  useEffect(() => {
+    (async () => {
+      try {
+        const authBody = new URLSearchParams()
+        authBody.append('grant_type', 'password')
+        authBody.append('client_id', 'datahub-api')
+        authBody.append('client_secret', 'ed7cd94f-727e-4cf7-879c-1c26f798bcc0')
+        authBody.append('username', 'mikathefinn@gmail.com')
+        authBody.append('password', 'juhapaavo69')
+
+        const authRes = await axios.post(
+          'https://iam-datahub.visitfinland.com/auth/realms/Datahub/protocol/openid-connect/token',
+          authBody,
+          {
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+          }
+        )
+
+        const accessToken = authRes.data.access_token
+
+        const myQuery = `
+          query GetGroupedProducts {
+            groupedProducts(args: {publishing_id: "3fee5495-0abb-4e3a-b2f8-98c8227ae0e9"}) {
+              id
+              productInformations(where: { language: { _eq: fi } }) {
+                name
+                description
+              }
+            }
+          }
+        `
+
+        const res = await axios.post(
+          'https://api-datahub.visitfinland.com/graphql/v1/graphql',
+          { query: myQuery },
+          {
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${accessToken}`,
+            },
+          }
+        )
+
+        const queryResult = res.data
+        console.log(JSON.stringify(queryResult, null, 2))
+        console.log('result', queryResult);
+      } catch (error) {
+        console.log('Error fetching data: ', error)
+      }
+    })()
+  }, [])
+
   return (
     <APIProvider apiKey={apiKey}>
       <div style={{ height: '100vh' }}>
