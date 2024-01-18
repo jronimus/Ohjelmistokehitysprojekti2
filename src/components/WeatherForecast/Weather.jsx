@@ -47,26 +47,30 @@
 //};
 
 
-    return (
+  return (
       
-      <div className='container'>
-        {notFound ? (<div>City not found</div>
-        ):(
-          <>
-            <h1>Weather Forecast</h1>
-            <div className='weather-image'>
-              <img src="" alt="" />
-            </div>
-            <div className='location'>{weatherData.name}</div>
-            <div className='temp'>Temp: {weatherData.main.temp} °C</div>
-            <div className='temp'>Feels like: {weatherData.main.feels_like} °C</div>
-            <div className='humidity'>Humidity: {weatherData.main.humidity}%</div>  
+    <div className='container'>
+      {notFound ? (<div>City not found</div>
+      ):(
+        <>
+          <h1>Weather Forecast</h1>
+          <h3 className='location'>{weatherData.name}</h3>
+          <img
+            src={`https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`}
+            alt="Weather Icon"
+            style={{ width: '100px', height: '100px' }}
+          />
+          <div> {weatherData.weather[0].description}</div>
+          <div className='temp'>Temp: {weatherData.main.temp} °C</div>
+          <div className='temp'>Feels like: {weatherData.main.feels_like} °C</div>
+          <div className='humidity'>Humidity: {weatherData.main.humidity}%</div>
+          
 
-          </>
-        )
-        }
-      
-      </div>
+        </>
+      )
+      }
+    
+    </div>
      
     
    
