@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
-import pin from '../../public/pin.png'
+import pin from '../Images/Icons/pin.png'
 import mapOptions from './mapSkin'
 
 import {
