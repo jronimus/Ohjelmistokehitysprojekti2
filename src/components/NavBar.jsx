@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types';
-import login from '../Images/Icons/login.png'
+import login from '../Images/Icons/login-person.png'
 import SearchIcon from '../Images/Icons/search.png'
 
 
@@ -30,9 +30,9 @@ function NavBar({ setCity }) {
   return(
   <div>
    <nav className='nav'>
-   <div className="left">
+   {/* <div className="left">
     <a href="/" className="logo">Logo</a>
-    </div>
+    </div> */}
     <div className="middle">
     <input type="text"
     className="searchInput address" 
@@ -46,9 +46,9 @@ function NavBar({ setCity }) {
     />
     <img src={SearchIcon} className="searchIcon" alt="" onClick={()=>{search()}} />
     </div>
-    <div className="right">
+   
     <a href="./"><img className="login" src={login} alt="" /></a>
-    </div>
+    
     
     </nav>
   </div>
