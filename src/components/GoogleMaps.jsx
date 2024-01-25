@@ -1,9 +1,11 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
+
+import ControlPanel from './ControlPanel'
+
 import pin from '../Images/Icons/pin.png'
 import mapOptions from './mapSkin'
-
 import {
   Map,
   APIProvider,
@@ -12,7 +14,6 @@ import {
   Pin,
   InfoWindow,
 } from '@vis.gl/react-google-maps'
-import { MarkerClusterer } from '@googlemaps/markerclusterer'
 
 function GoogleMaps() {
   const [geoData, setGeoData] = useState(null)
@@ -22,8 +23,7 @@ function GoogleMaps() {
   const apiKey = import.meta.env.VITE_API_KEY
   const mapId = import.meta.env.VITE_MAP_ID
 
-
-
+  // city bike stations
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -32,7 +32,6 @@ function GoogleMaps() {
         )
         const data = response.data
         setGeoData(data)
-        console.log(geoData)
       } catch (error) {
         console.log('Error fetching data:  ', error)
       }
@@ -40,6 +39,7 @@ function GoogleMaps() {
     fetchData()
   }, [])
 
+  // Municipality buildings (includes libraries, which will be filtered out)
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -57,6 +57,7 @@ function GoogleMaps() {
   useEffect(() => {
     // Check if muniData is not null and has a data property before mapping
     if (muniData && Array.isArray(muniData.data)) {
+      
       muniData.data
         .filter(
           (item) =>
@@ -69,22 +70,19 @@ function GoogleMaps() {
     }
   }, [muniData])
 
-
-
   return (
     <APIProvider apiKey={apiKey}>
       <div style={{ height: '100vh' }}>
-        <Map zoom={11} center={position}  options={mapOptions}>
+        <Map zoom={11} center={position} options={mapOptions}>
           {geoData &&
             geoData.features.map((feature, index) => (
               <Marker
-                key={index} icon={pin}
+                key={index}
+                icon={pin}
                 position={{
                   lat: feature.geometry.coordinates[1],
                   lng: feature.geometry.coordinates[0],
-
-                }}>
-              </Marker>
+                }}></Marker>
             ))}
 
           {muniData &&
@@ -94,13 +92,12 @@ function GoogleMaps() {
               .map((item, index) => {
                 return (
                   <Marker
-                    key={index} icon={pin}
+                    key={index}
+                    icon={pin}
                     position={{
                       lat: item.position.coordinates[1],
                       lng: item.position.coordinates[0],
-                    }}>
-                  
-                  </Marker>
+                    }}></Marker>
                 )
               })}
         </Map>
