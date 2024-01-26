@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import NavBar from './components/NavBar'
 import GoogleMaps from './components/GoogleMaps'
-import Weather from './components/WeatherForecast/Weather'
+import Weather from './components/Weather'
 import Datahub from './components/Datahub'
 import JungleFIndFrame from './components/JungleFIndFrame'
 // import Weather2 from './components/Weather2'

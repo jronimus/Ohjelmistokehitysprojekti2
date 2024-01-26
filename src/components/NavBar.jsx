@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import PropTypes from 'prop-types';
 import login from '../Images/Icons/login-person.png'
-import SearchIcon from '../Images/Icons/search.png'
+import '../styles/NavBar.css'; 
+// import SearchIcon from '../Images/Icons/search.png'
 
 
 function NavBar({ setCity }) {
@@ -11,6 +12,8 @@ function NavBar({ setCity }) {
   const handleEnterKey = (event) =>{
     if(event.key === "Enter"){
       search();
+
+      
     }
   }
 
@@ -35,16 +38,17 @@ function NavBar({ setCity }) {
     </div> */}
     <div className="middle">
     <input type="text"
-    className="searchInput address" 
+    className="searchInput" 
     placeholder="Search" 
     value={city}
     onKeyDown={handleEnterKey}
     onChange={(element) => {
       setCityLocal(element.target.value);
+      
       }
     }
     />
-    <img src={SearchIcon} className="searchIcon" alt="" onClick={()=>{search()}} />
+    {/* <img src={SearchIcon} className="searchIcon" alt="" onClick={()=>{search()}} /> */}
     </div>
    
     <a href="./"><img className="login" src={login} alt="" /></a>

@@ -1,6 +1,6 @@
   import React, { useEffect } from 'react'
   import { useState } from 'react';
-  import './Weather.css'
+  import '../styles/Weather.css'
   import axios from 'axios';
   
 //component
@@ -60,10 +60,12 @@
             alt="Weather Icon"
             style={{ width: '100px', height: '100px' }}
           />
-          <div> {weatherData.weather[0].description}</div>
+          <div className='info'>
+          <div> {weatherData.weather[0].description.toUpperCase()}</div>
           <div className='temp'>Temp: {weatherData.main.temp} °C</div>
           <div className='temp'>Feels like: {weatherData.main.feels_like} °C</div>
           <div className='humidity'>Humidity: {weatherData.main.humidity}%</div>
+          </div>
           
 
         </>

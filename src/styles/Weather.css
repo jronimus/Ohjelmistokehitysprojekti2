@@ -5,7 +5,7 @@
   margin: auto;
   margin-top: 75px;
   border-radius: 5rem;
-  background-image: linear-gradient(180deg, #8b80cd 0%, #34277b 100%);
+  background-image: linear-gradient(180deg, #97d49b 0%, #004C37 100%);
   color: white;
   padding: 2rem;
   display: flex;
@@ -15,4 +15,7 @@
 }
 h3{
   margin: 0;
+}
+.info{
+  line-height: 1.5rem;
 }
