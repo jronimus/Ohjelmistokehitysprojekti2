@@ -25,14 +25,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 0 3rem 0 5rem;
+  gap: 1rem;
+  padding: 0 2rem;
   grid-column: 1 / 4;
   grid-row: 1;
 }
+
+.bold {
+  font-weight: bold;
+}  
+
 .login-box figure {
-  position: absolute;
-  left: 0;
-  padding-left: 3rem;
   margin: 0;
 }
 .events-box {

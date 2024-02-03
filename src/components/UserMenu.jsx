@@ -1,17 +1,15 @@
 import React from 'react'
-import '../styles/ControlPanel.css'
+import '../styles/UserMenu.css'
 import person from '../Images/Icons/person.png'
 import events from '../Images/Icons/Events.png'
 import weather from '../Images/Icons/Weather.png'
 import districts from '../Images/Icons/Districts.png'
 import bikes from '../Images/Icons/Bikes.png'
 import settings from '../Images/Icons/Settings.png'
-import transit from '../Images/Icons/Transit.png'
+import activities from '../Images/Icons/Activities.png'
+import locations from '../Images/Icons/Locations.png'
 
-const ControlPanel = ({ onLogin, onSignUp }) =>  {
-
-  const handleLogin = () => onLogin();
-  const handleSignUp = () => onSignUp();
+const UserMenu = () =>  {
 
   return (
     <div className='grid-container'>
@@ -19,13 +17,16 @@ const ControlPanel = ({ onLogin, onSignUp }) =>  {
         <figure className='person'>
           <img src={person} alt='Login icon' />
         </figure>
-        {/* <p>
-          Welcome! To access personalized content, please log in or register for
-          an account.
-        </p> */}
-        <p>Welcome! To access personalized content, please
-              <span className='bold' onClick={handleLogin}> log in</span> or 
-              <span className='bold' onClick={handleSignUp}> register</span> for un account</p>
+        <p>
+          Joni Ronimus
+          joni.ronimus@gmail.com
+        </p>
+      </div>
+      <div className='locations-box grid-item'>
+        <img src={locations} />
+      </div>
+      <div className='activities-box grid-item'>
+        <img src={activities} />
       </div>
       <div className='events-box grid-item'>
         <img src={events} />
@@ -42,11 +43,8 @@ const ControlPanel = ({ onLogin, onSignUp }) =>  {
       <div className='settings-box grid-item'>
         <img src={settings} />
       </div>
-      <div className='transit-box grid-item'>
-        <img src={transit} />
-      </div>
     </div>
   )
 }
 
-export default ControlPanel
+export default UserMenu

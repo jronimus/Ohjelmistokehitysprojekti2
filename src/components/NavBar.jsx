@@ -2,33 +2,29 @@ import { useState } from 'react'
 import PropTypes from 'prop-types';
 import login from '../Images/Icons/login-person.png'
 import '../styles/NavBar.css'; 
-// import SearchIcon from '../Images/Icons/search.png'
 
-
-function NavBar({ setCity }) {
+function NavBar({ setCity, onUserMenu }) {
 
   const [city, setCityLocal] = useState(null)
   //pressing enter also 
   const handleEnterKey = (event) =>{
     if(event.key === "Enter"){
-      search();
-
-      
+      search();  
     }
   }
 
-  const search = ()=>{
+  const handleUserMenu = () => onUserMenu();
+
+  const search = () => {
       // const addressElement = document.getElementsByClassName("address")
       if(city === ""){
         console.log("nothing entered");
-       return 0;
-        
+       return 0;       
       }
       else{
         console.log('city name is ', city);
         setCity(city);
       }
-
   }
   return(
   <div>
@@ -48,18 +44,12 @@ function NavBar({ setCity }) {
       }
     }
     />
-    {/* <img src={SearchIcon} className="searchIcon" alt="" onClick={()=>{search()}} /> */}
-    </div>
-   
-    <a href="./"><img className="login" src={login} alt="" /></a>
-    
-    
+    </div> 
+    <img role='button' onClick={handleUserMenu} className="login" src={login} alt="" />
     </nav>
   </div>
   )
 }
-
-
 
 NavBar.propTypes = {
   setCity: PropTypes.func.isRequired,
