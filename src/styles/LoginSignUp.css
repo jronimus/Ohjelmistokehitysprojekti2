@@ -1,0 +1,161 @@
+.form-box {
+    border-radius: 2em;
+    background-color: whitesmoke;
+    height: max-content;
+    width: 96%;
+    margin: 0.5em 0 1em 0.5em;
+} 
+
+.curved {
+    display: block;
+    background-color: #004C37;
+    color: white;
+    border-radius: 2em 2em 0 0;
+    padding: 1em 0 0 0;
+}
+
+.curved h2 {
+    margin-left: 2.5em;
+    margin-block-start: 0;
+    margin-block-end: 0;
+    font-size: 2em;
+}
+
+.curved svg {
+    display: block;
+}
+
+.form-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-content form {
+    width: 70%;
+}
+
+form .input-field {
+    position: relative;
+    height: 3em;
+    width: 100%;
+}
+
+.input-field input {
+    height: 100%;
+    width: 80%;
+    background-color: #ECECEC;
+    outline: none;
+    padding: 0 2em;
+    border: 1px solid #AFCD2F;
+    border-radius: 2em;
+}
+
+.next-input {
+    margin-top: 1em;
+ }
+
+.input-field input:focus {
+    border: 1px solid #004C37;
+}
+
+.input-field label {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    transform: translateY(-50%);
+    color: lightslategrey;
+    pointer-events: none;
+    transition: 0.2s ease;
+    font-size: larger;
+}
+
+form :where(.forgot-pass-link, .policy-text) {
+    display: inline-flex;
+    margin-top: 0.3em;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-left: 1em;
+    color: black
+};
+
+.log-in {
+    display: flex;
+    justify-content: center;
+}
+
+.log-in button {
+    height: 3em;
+    width: 90%;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #717171;
+    border-radius: 2em;
+    color: white;
+    background-color: #004C37;
+    margin: 1em;
+}
+
+.or {
+    text-align: center;
+    margin: 0;
+    font-size: larger;
+    font-weight: bold;
+}
+
+.btn-sign-in {
+    height: 3em;
+    width: 90%;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 2em;
+    color: white;
+    margin: 1em;
+    display: flex;
+    align-items: center;
+    box-shadow: 0 10px 10px grey;
+    border: none;
+}
+
+.btn-sign-in img {
+    height: 2.2em;
+}
+ 
+
+.terms {
+    padding: 1em 4em;
+    font-size: 1.1rem;
+    text-align: center;
+}
+
+.terms hr {
+    width: 50%;
+}
+
+.dimColor {
+    color: lightslategrey;
+}
+
+.back {
+    margin-left: 1em;
+}
+
+.sign-up {
+    display: flex;
+    justify-content: center;
+}
+
+.sign-up button {
+    height: 3em;
+    width: 90%;
+    outline: none;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border: 1px solid #717171;
+    border-radius: 2em;
+    color: white;
+    background-color: #004C37;
+    margin: 1em;
+}

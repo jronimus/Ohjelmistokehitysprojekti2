@@ -7,15 +7,21 @@ import JungleFIndFrame from './components/JungleFIndFrame'
 // import Weather2 from './components/Weather2'
 
 const App = () => {
-  const [city, setCity] = useState('')
+  const [city, setCity] = useState('');
+  const [isJungleFindFrameOpen, setIsJungleFindFrameOpen] = useState(false);
+
+  const handleUserMenu = () => {
+    console.log('user menu in App');
+    setIsJungleFindFrameOpen(true);
+  }
 
   return (
     <>
-      <NavBar setCity={setCity} />
+      <NavBar setCity={setCity} onUserMenu={handleUserMenu} />
       <GoogleMaps />
       <Weather city={city} />
       {/* <Datahub /> */}
-      <JungleFIndFrame />
+      { isJungleFindFrameOpen && <JungleFIndFrame />}
     </>
   )
 }
