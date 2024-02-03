@@ -95,6 +95,7 @@ form :where(.forgot-pass-link, .policy-text) {
     color: white;
     background-color: #004C37;
     margin: 1em;
+    cursor: pointer;
 }
 
 .or {
@@ -102,6 +103,10 @@ form :where(.forgot-pass-link, .policy-text) {
     margin: 0;
     font-size: larger;
     font-weight: bold;
+}
+
+.register {
+    cursor: pointer;
 }
 
 .btn-sign-in {
@@ -117,6 +122,7 @@ form :where(.forgot-pass-link, .policy-text) {
     align-items: center;
     box-shadow: 0 10px 10px grey;
     border: none;
+    cursor: pointer;
 }
 
 .btn-sign-in img {
@@ -140,6 +146,7 @@ form :where(.forgot-pass-link, .policy-text) {
 
 .back {
     margin-left: 1em;
+    cursor: pointer;
 }
 
 .sign-up {
@@ -158,4 +165,5 @@ form :where(.forgot-pass-link, .policy-text) {
     color: white;
     background-color: #004C37;
     margin: 1em;
+    cursor: pointer;
 }

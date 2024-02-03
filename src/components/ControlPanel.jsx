@@ -19,10 +19,6 @@ const ControlPanel = ({ onLogin, onSignUp }) =>  {
         <figure className='person'>
           <img src={person} alt='Login icon' />
         </figure>
-        {/* <p>
-          Welcome! To access personalized content, please log in or register for
-          an account.
-        </p> */}
         <p>Welcome! To access personalized content, please
               <span className='bold' onClick={handleLogin}> log in</span> or 
               <span className='bold' onClick={handleSignUp}> register</span> for un account</p>

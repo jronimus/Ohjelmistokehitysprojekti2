@@ -15,13 +15,17 @@ const App = () => {
     setIsJungleFindFrameOpen(true);
   }
 
+  const handleCloseUserMenu = () => {
+    setIsJungleFindFrameOpen(false);
+  }
+
   return (
     <>
       <NavBar setCity={setCity} onUserMenu={handleUserMenu} />
       <GoogleMaps />
       <Weather city={city} />
       {/* <Datahub /> */}
-      { isJungleFindFrameOpen && <JungleFIndFrame />}
+      { isJungleFindFrameOpen && <JungleFIndFrame onCloseUserMenu={handleCloseUserMenu}/>}
     </>
   )
 }

@@ -9,38 +9,40 @@ import settings from '../Images/Icons/Settings.png'
 import activities from '../Images/Icons/Activities.png'
 import locations from '../Images/Icons/Locations.png'
 
-const UserMenu = () =>  {
+const UserMenu = ({onLocations}) =>  {
+
+  const handleLocations = () => onLocations();
 
   return (
-    <div className='grid-container'>
-      <div className='login-box'>
+    <div className='gr-container'>
+      <div className='log-box'>
         <figure className='person'>
           <img src={person} alt='Login icon' />
         </figure>
         <p>
-          Joni Ronimus
+          <span className='bold'>Joni Ronimus</span><br/>
           joni.ronimus@gmail.com
         </p>
       </div>
-      <div className='locations-box grid-item'>
-        <img src={locations} />
+      <div className='locationsBox item'>
+        <img src={locations}  role='button' onClick={handleLocations} />
       </div>
-      <div className='activities-box grid-item'>
+      <div className='activitiesBox item'>
         <img src={activities} />
       </div>
-      <div className='events-box grid-item'>
+      <div className='eventsBox item'>
         <img src={events} />
       </div>
-      <div className='weather-box grid-item'>
+      <div className='weatherBox item'>
         <img src={weather} />
       </div>
-      <div className='districts-box grid-item'>
+      <div className='districtsBox item'>
         <img src={districts} />
       </div>
-      <div className='bikes-box grid-item'>
+      <div className='bikesBox item'>
         <img src={bikes} />
       </div>
-      <div className='settings-box grid-item'>
+      <div className='settingsBox item'>
         <img src={settings} />
       </div>
     </div>

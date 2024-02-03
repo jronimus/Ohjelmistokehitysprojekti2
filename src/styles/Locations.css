@@ -1,3 +1,16 @@
-header {
+.header {
     display: flex;
+}
+
+.back {
+    margin-top: 1.5rem;
+}
+
+.locations-title {
+    padding-left: 1.5rem;
+}
+
+.groupLocations {
+    display: flex;
+    justify-content: center;
 }
