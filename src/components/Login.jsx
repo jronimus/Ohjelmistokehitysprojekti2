@@ -1,10 +1,23 @@
 import '../styles/LoginSignUp.css';
 import google from '../Images/Icons/google.png'
+import { useState } from 'react';
 
 const Login = ({ onSignUp, onLoggedIn }) => {
 
+    const [userNameText, setUserNameText] = useState('');
+    const [userPassword , setUserPassword] = useState('');
     const handleSignUp = () => onSignUp();
     const handleLogIn = () => onLoggedIn();
+
+    const handleUserName = (event) => {
+        event.preventDefault();
+        setUserNameText(event.target.value)
+    }
+
+    const handleUserPassword = (event) => {
+        event.preventDefault();
+        setUserPassword(event.target.value)
+    }
     
     return (
         
@@ -16,12 +29,11 @@ const Login = ({ onSignUp, onLoggedIn }) => {
                 <div className="form-content">
                     <form className='form'>
                         <div className="input-field">
-                            <input type="text" required />
-                            <label>Username or email</label>
+                            <input placeholder='Username or email' type="text" onChange={handleUserName} value={userNameText} required/>
                         </div>
                         <div className="input-field next-input">
-                            <input type="password" required />
-                            <label>Password</label>
+                            <input placeholder='Password' type="password" onChange={handleUserPassword}
+                            value={userPassword} required/>
                         </div>
                         <a href="#" className="forgot-pass-link">Forgot password?</a><br/>
                         <div className="log-in">

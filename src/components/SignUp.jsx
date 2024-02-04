@@ -1,9 +1,35 @@
 import '../styles/LoginSignUp.css';
 import back from '../Images/Icons/back.png'
+import { useState } from 'react';
 
 const SignUp = ({ onBack }) => {
 
+    const [userNameText, setUserNameText] = useState('');
+    const [userEmail, setUserEmail] = useState('');
+    const [userPassword , setUserPassword] = useState('');
+    const [userPasswordConfirm, setUserPasswordConfirm] = useState('');
+
     const handleBack = () => onBack();
+
+    const handleUserName = (event) => {
+        event.preventDefault();
+        setUserNameText(event.target.value)
+    }
+
+    const handleUserPassword = (event) => {
+        event.preventDefault();
+        setUserPassword(event.target.value)
+    }
+
+    const handleUserEmail = (event) => {
+        event.preventDefault();
+        setUserEmail(event.target.value)
+    }
+
+    const handleUserPasswordConfirm = (event) => {
+        event.preventDefault();
+        setUserPasswordConfirm(event.target.value)
+    }
 
     return (
         <div className="form-box signup">
@@ -15,20 +41,19 @@ const SignUp = ({ onBack }) => {
         <div className="form-content">
             <form >
                 <div className="input-field">
-                    <input type="text" required />
-                    <label>Username</label>
+                    <input placeholder='Username' type="text" onChange={handleUserName} value={userNameText} required />
                 </div>
                 <div className="input-field next-input">
-                    <input type="password" required />
-                    <label>Email</label>
+                    <input placeholder='Email' type="email" onChange={handleUserEmail}
+                    value={userEmail} required />
                 </div>
                 <div className="input-field next-input">
-                    <input type="password" required />
-                    <label>Password</label>
+                    <input placeholder='Password' type="password" onChange={handleUserPassword}
+                    value={userPassword} required />
                 </div>
                 <div className="input-field next-input">
-                    <input type="password" required />
-                    <label>Confirm password</label>
+                    <input placeholder='Confirm password'  type="password" onChange={handleUserPasswordConfirm}
+                    value={userPasswordConfirm} required />
                 </div>
                 <div className="sign-up">
                     <button type="submit">Sign up</button>

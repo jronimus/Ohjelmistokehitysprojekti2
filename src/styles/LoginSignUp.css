@@ -36,7 +36,6 @@
 }
 
 form .input-field {
-    position: relative;
     height: 3em;
     width: 100%;
 }
@@ -49,6 +48,7 @@ form .input-field {
     padding: 0 2em;
     border: 1px solid #AFCD2F;
     border-radius: 2em;
+    font-size: larger;
 }
 
 .next-input {
@@ -57,17 +57,6 @@ form .input-field {
 
 .input-field input:focus {
     border: 1px solid #004C37;
-}
-
-.input-field label {
-    position: absolute;
-    top: 50%;
-    left: 15px;
-    transform: translateY(-50%);
-    color: lightslategrey;
-    pointer-events: none;
-    transition: 0.2s ease;
-    font-size: larger;
 }
 
 form :where(.forgot-pass-link, .policy-text) {
