@@ -1,0 +1,29 @@
+.frame {
+  margin: 1rem;
+  border: 1px solid black;
+  border-radius: 20px;
+  overflow: auto;
+  max-height: 100%;
+  background-color: #ececec;
+  z-index: 100;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+.top {
+  background-color: #004c37;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0 0.25rem 0;
+}
+
+#close {
+  width: 2.5rem;
+  padding-left: 2rem;
+  position: absolute;
+  left: 0;
+  cursor: pointer;
+}

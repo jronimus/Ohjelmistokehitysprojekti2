@@ -25,3 +25,6 @@ dist-ssr
 
 # api keys
 *.env
+
+.Weather1.jsx
+.Weather2.jsx
